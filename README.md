@@ -34,8 +34,8 @@ P.S: in case of issues with internet access from container, for example, look at
 
 5) Also you can login into running master container:
 
-<code>docker-compose exec master bash
-source /ros_entrypoint.sh</code>
+<code>docker-compose exec master bash </code>
+<code>source /ros_entrypoint.sh</code>
 
 And observe ROS topics:
 
