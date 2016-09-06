@@ -1,0 +1,28 @@
+version: '2'
+services:
+  master:
+    build:
+         context: ./master
+    container_name: master
+    hostname: master
+    command:
+         - roscore
+  desktop:
+    build: 
+         context: ./desktop
+    container_name: desktop
+    hostname: desktop
+    environment:
+      - "ROS_HOSTNAME=desktop"
+      - "ROS_MASTER_URI=http://master:11311"
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+      - "../sear:/home/rosuser/sear"
+    devices:
+      - "/dev/dri:/dev/dri"
+      - "/dev/bus/usb:/dev/bus/usb"
+    command:
+         - bash
+
+
+
