@@ -1,4 +1,0 @@
-FROM ros:indigo-ros-base
-# install ros tutorials packages
-RUN apt-get update
-
