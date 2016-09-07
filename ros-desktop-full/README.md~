@@ -25,6 +25,13 @@ Card).
 git changes shall be executed in the host in order for docker container to
 provide clean runtime environment.
 
+4) Login into desktop:
+Either by starting it:
+docker-compose run desktop bash
+
+Or by executing a command in it:
+docker-compose exec desktop bash
+
 You can login inside with rosuser, for example, into master container
 
 docker-compose exec --user=rosuser master bash
