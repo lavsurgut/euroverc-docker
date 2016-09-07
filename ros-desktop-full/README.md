@@ -1,4 +1,6 @@
 
+
+
 Getting started with desktop ROS docker containers:
 
 1) Given compose file configures example desktop for the use in SEAR project.
