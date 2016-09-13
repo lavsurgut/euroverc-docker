@@ -27,7 +27,7 @@ Card).
 
 3) Checkout needed source code repository from git in the host machine. All 
 git changes shall be executed in the host in order for docker container to
-provide clean runtime environment.
+provide clean and static runtime environment.
 
 4) Login into desktop:
 Either by starting it:
@@ -38,8 +38,8 @@ Or by executing a command in it:
 
 <code>docker-compose exec desktop bash</code>
 
-You can login inside with rosuser, for example, into master container:
+You can login inside with root, for example, into desktop container:
 
-<code>docker-compose exec --user=rosuser master bash</code>
+<code>docker-compose exec --user=root desktop bash</code>
 
 

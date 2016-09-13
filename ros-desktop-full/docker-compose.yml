@@ -5,8 +5,10 @@ services:
          context: ./master
     container_name: master
     hostname: master
-    command:
-         - roscore
+    environment:
+      - "ROS_HOSTNAME=master"
+      - "ROS_MASTER_URI=http://master:11311"
+    command: ["roscore"]
   desktop:
     build: 
          context: ./desktop
@@ -14,15 +16,14 @@ services:
     hostname: desktop
     environment:
       - "ROS_HOSTNAME=desktop"
-      - "ROS_MASTER_URI=http://localhost:11311"
+      - "ROS_MASTER_URI=http://master:11311"
     volumes:
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
       - "../../sear:/home/rosuser/sear"
     devices:
       - "/dev/dri:/dev/dri" 
-      - "/dev/bus/usb:/dev/bus/usb"   
-    command:
-         - roscore
+      - "/dev/bus/usb:/dev/bus/usb"
+    command: ["/bin/bash", "-c", "source ~/sear/rosws/devel/setup.bash && roslaunch sear_2dnav openni2+rgbdslam.launch"]
 
 
 

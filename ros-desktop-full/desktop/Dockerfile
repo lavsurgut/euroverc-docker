@@ -21,8 +21,6 @@ make -j 4 && make install && \
 sh -c 'echo "/usr/local/lib" > /etc/ld.so.conf.d/opencv.conf' && \
 ldconfig
 
-
-
 RUN apt-get -y install software-properties-common
 
 RUN add-apt-repository -y ppa:v-launchpad-jochen-sprickerhof-de/pcl
@@ -90,25 +88,17 @@ RUN chmod +x /sear_entrypoint.sh
 # clean up apt lists
 RUN rm -rf /var/lib/apt/lists/*    
 
+# set default user to rosuser
 USER rosuser
 
+# set some variables for ROS and ROS GUI tools
 ENV HOME /home/rosuser
 ENV DISPLAY :0
 ENV QT_X11_NO_MITSHM 1
 ENV QT_GRAPHICSSYSTEM native
 
-
-
+# set ROS environment variables for manual bash session (eg. via exec)
 RUN printf "source /opt/ros/indigo/setup.bash" >> /home/rosuser/.bashrc
 
 ENTRYPOINT ["/sear_entrypoint.sh"]
-
-
-
-
-
-
-
-
-
 
