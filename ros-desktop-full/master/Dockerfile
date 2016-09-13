@@ -37,12 +37,6 @@ RUN groupadd -g $PGID rosuser && \
 # set PATH
 ENV PATH ${PATH}:/usr/local/bin
 
-# copy new extended entry point and set it up
-COPY sear_entrypoint.sh /
-
-RUN chmod +x /sear_entrypoint.sh
-
-
 # clean up apt lists
 RUN rm -rf /var/lib/apt/lists/*    
 
