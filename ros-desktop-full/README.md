@@ -37,7 +37,7 @@ You also can login inside with root user:
 
 <code>docker-compose run --user=root desktop bash</code>
 
-5) If you haven't yet compiled source files for SEAR project, compile them:
+5) If you haven't yet compiled source files for SEAR project, compile them as the rosuser:
 
 <code>cd ~/sear/rosws</code>
 
@@ -47,4 +47,10 @@ You also can login inside with root user:
 
 6) Now you should be able to run compiled packages from the container.
 
+7) After that you should be able to run
+
+<code>docker-compose up -d --build</code>
+
+This command will rebuild if needed changes to docker images configuration and
+start nodes, specified in the compose file automatically.
 

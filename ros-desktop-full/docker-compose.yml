@@ -24,20 +24,7 @@ services:
       - "/dev/dri:/dev/dri" 
       - "/dev/bus/usb:/dev/bus/usb"
     command: ["/bin/bash", "-c", "source ~/sear/rosws/devel/setup.bash && roslaunch sear_2dnav openni2+rgbdslam.launch"]
-  simulation:
-    build: 
-         context: ./simulation
-    container_name: simulation
-    hostname: simulation
-    environment:
-      - "ROS_HOSTNAME=simulation"
-      - "ROS_MASTER_URI=http://master:11311"
-    volumes:
-      - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
-      - "../../sear:/home/rosuser/sear"
-    devices:
-      - "/dev/dri:/dev/dri" 
-    command: ["/bin/bash"]
+
 
 
 
