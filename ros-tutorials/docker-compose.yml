@@ -1,23 +1,26 @@
 version: '2'
 services:
-  master:
+  tutorial-master:
     build: .
-    container_name: master
+    container_name: tutorial-master
     command:
       - roscore
 
-  talker:
+  tutorial-talker:
     build: .
-    container_name: talker
+    container_name: tutorial-talker
     environment:
       - "ROS_HOSTNAME=talker"
-      - "ROS_MASTER_URI=http://master:11311"
+      - "ROS_MASTER_URI=http://tutorial-master:11311"
     command: rosrun roscpp_tutorials talker
-
-  listener:
+    depends_on:
+     - tutorial-master
+  tutorial-listener:
     build: .
-    container_name: listener
+    container_name: tutorial-listener
     environment:
       - "ROS_HOSTNAME=listener"
-      - "ROS_MASTER_URI=http://master:11311"
+      - "ROS_MASTER_URI=http://tutorial-master:11311"
     command: rosrun roscpp_tutorials listener
+    depends_on:
+     - tutorial-master
