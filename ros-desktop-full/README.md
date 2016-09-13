@@ -29,17 +29,22 @@ Card).
 git changes shall be executed in the host in order for docker container to
 provide clean and static runtime environment.
 
-4) Login into desktop:
-Either by starting it:
+4) Login into desktop as the rosuser:
 
 <code>docker-compose run desktop bash</code>
 
-Or by executing a command in it:
+You also can login inside with root user:
 
-<code>docker-compose exec desktop bash</code>
+<code>docker-compose run --user=root desktop bash</code>
 
-You can login inside with root, for example, into desktop container:
+5) If you haven't yet compiled source files for SEAR project, compile them:
 
-<code>docker-compose exec --user=root desktop bash</code>
+<code>cd ~/sear/rosws</code>
+
+<code>source devel/setup.bash</code>
+
+<code>catkin_make</code>
+
+6) Now you should be able to run compiled packages from the container.
 
 
