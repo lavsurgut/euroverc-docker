@@ -20,6 +20,8 @@ services:
     volumes:
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
       - "../../sear:/home/rosuser/sear"
+    depends_on:
+      - master
     devices:
       - "/dev/dri:/dev/dri" 
       - "/dev/bus/usb:/dev/bus/usb"

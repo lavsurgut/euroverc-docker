@@ -29,6 +29,16 @@ Card).
 git changes shall be executed in the host in order for docker container to
 provide clean and static runtime environment.
 
+You have to check out the development branch
+
+<code>git checkout development</code>
+
+Init and update submodules
+
+<code>git submodule init</code>
+<code>git submodule update</code>
+
+
 4) Login into desktop as the rosuser:
 
 <code>docker-compose run desktop bash</code>
@@ -37,13 +47,22 @@ You also can login inside with root user:
 
 <code>docker-compose run --user=root desktop bash</code>
 
-5) If you haven't yet compiled source files for SEAR project, compile them as the rosuser:
+5) If you haven't yet compiled the source files for the SEAR project, compile them as the rosuser (login to the desktop container like in step 4)
 
 <code>cd ~/sear/rosws</code>
 
-<code>source devel/setup.bash</code>
+Compile the packages, this might not work for some packages and they have to be excluded.
+In our configuration we changed the ~/sear/rosws/src/CMakeList.txt file with
+
+<code>
+-  set(CATKIN_BLACKLIST_PACKAGES "sear_task;move_recovery;manipulator;openni_camera;openni_launch" CACHE STRING "agfasd" FORCE)
++  set(CATKIN_BLACKLIST_PACKAGES "manipulator_control;new_manipulator_control;sear_joint_trajectory_controller;frontier_exploration;sear_task;move_recovery;manipulator;openni_camera;openni_launch" CACHE ST
+</code>
 
 <code>catkin_make</code>
+
+<code>source devel/setup.bash</code>
+
 
 6) Now you should be able to run compiled packages from the container.
 

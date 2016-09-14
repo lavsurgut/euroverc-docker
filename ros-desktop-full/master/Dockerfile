@@ -1,4 +1,4 @@
-FROM osrf/ros:indigo-desktop-full
+FROM ros:indigo-ros-base
 
 
 RUN apt-get update && \
