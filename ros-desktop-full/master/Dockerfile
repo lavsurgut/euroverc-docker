@@ -1,6 +1,5 @@
 FROM ros:indigo-ros-base
 
-
 RUN apt-get update && \
 apt-get install -y wget
 
@@ -48,6 +47,5 @@ ENV HOME /home/rosuser
 
 # set ROS environment variables for manual bash session (eg. via exec)
 RUN printf "source /opt/ros/indigo/setup.bash" >> /home/rosuser/.bashrc
-
 
 
