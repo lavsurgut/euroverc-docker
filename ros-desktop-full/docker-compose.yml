@@ -19,7 +19,7 @@ services:
       - "ROS_MASTER_URI=http://master:11311"
     volumes:
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
-      - "../../sear:/home/rosuser/sear"
+      - "../../spacebot:/home/rosuser/sear"
     depends_on:
       - master
     devices:
