@@ -1,0 +1,13 @@
+
+usbtin: http://www.fischl.de/usbtin/linux_can_socketcan/
+
+modprobe not found
+
+sudo apt-get --reinstall install module-init-tools from https://ubuntuforums.org/showthread.php?t=894745
+
+could not open moddep file...
+sudo apt-get install --reinstall linux-image-4.4.0-36-generic (different version than in forum)
+
+http://askubuntu.com/questions/459296/could-not-open-moddep-file-lib-modules-3-xx-generic-modules-dep-bin-when-mo
+
+Go over grub update (didn't work):	http://askubuntu.com/questions/82977/grub-update-making-automated-install-stuck
