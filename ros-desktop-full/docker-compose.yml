@@ -19,13 +19,13 @@ services:
       - "ROS_MASTER_URI=http://master:11311"
     volumes:
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
-      - "../../spacebot:/home/rosuser/sear"
+      - "../../project:/home/rosuser/project"
     depends_on:
       - master
     devices:
       - "/dev/dri:/dev/dri" 
       - "/dev/bus/usb:/dev/bus/usb"
-    command: ["/bin/bash", "-c", "source ~/sear/rosws/devel/setup.bash && roslaunch sear_2dnav openni2+rgbdslam.launch"]
+    command: ["/bin/bash", "-c", "roslaunch openni2_launch openni2.launch"]
   simulation:
     build: 
          context: ./simulation
@@ -36,7 +36,7 @@ services:
       - "ROS_MASTER_URI=http://master:11311"
     volumes:
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
-      - "../../sear:/home/rosuser/sear"
+      - "../../project:/home/rosuser/project"
     depends_on:
       - master
     devices:
