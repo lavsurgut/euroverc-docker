@@ -100,5 +100,5 @@ ENV QT_GRAPHICSSYSTEM native
 # set ROS environment variables for manual bash session (eg. via exec)
 RUN printf "source /opt/ros/indigo/setup.bash" >> /home/rosuser/.bashrc
 
-ENTRYPOINT ["/sear_entrypoint.sh"]
+ENTRYPOINT ["/project_entrypoint.sh"]
 
