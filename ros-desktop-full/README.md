@@ -3,7 +3,7 @@
 <b>Getting started with desktop ROS docker containers</b>:
 
 
-1) Given compose file configures example desktop for the use in SEAR project.
+1) Given compose file configures example desktop for the use in example ROS project.
 It has configuration for ASUS Xtion PRO Live camera.
 
 P.S: In order to work on given host machine, make sure Xtion camera is properly
@@ -19,7 +19,7 @@ This means that these paths are being mounted from the host machine.
 When docker container will be rebuilt, everything that resides in this folder
 will not be deleted. Otherwise everything in the docker container is deleted.
 This is very useful for sharing source code for example. 
-In this example, desktop container will share "../../sear" folder with sear project
+In this example, desktop container will share "../../ros-project" folder with sear project
 source code and also X11 folder to be able to display GUI from the container.
 
 Additionaly we mount USB device for our Xtion camera and GPU (for Intel Video 
@@ -47,22 +47,7 @@ You also can login inside with root user:
 
 <code>docker-compose run --user=root desktop bash</code>
 
-5) If you haven't yet compiled the source files for the SEAR project, compile them as the rosuser (login to the desktop container like in step 4)
-
-<code>cd ~/sear/rosws</code>
-
-Compile the packages, this might not work for some packages and they have to be excluded.
-In our configuration we changed the ~/sear/rosws/src/CMakeList.txt file with
-
-<code>
--  set(CATKIN_BLACKLIST_PACKAGES "sear_task;move_recovery;manipulator;openni_camera;openni_launch" CACHE STRING "agfasd" FORCE)
-+  set(CATKIN_BLACKLIST_PACKAGES "manipulator_control;new_manipulator_control;sear_joint_trajectory_controller;frontier_exploration;sear_task;move_recovery;manipulator;openni_camera;openni_launch" CACHE ST
-</code>
-
-<code>catkin_make</code>
-
-<code>source devel/setup.bash</code>
-
+5) If you haven't yet compiled the source files for the project, compile them as the rosuser (login to the desktop container like in step 4)
 
 6) Now you should be able to run compiled packages from the container.
 
