@@ -25,19 +25,9 @@ source code and also X11 folder to be able to display GUI from the container.
 Additionaly we mount USB device for our Xtion camera and GPU (for Intel Video 
 Card).
 
-3) Checkout needed source code repository from git in the host machine. All 
+3) Checkout needed source code repository from git on the host machine. All 
 git changes shall be executed in the host in order for docker container to
 provide clean and static runtime environment.
-
-You have to check out the development branch
-
-<code>git checkout development</code>
-
-Init and update submodules
-
-<code>git submodule init</code>
-<code>git submodule update</code>
-
 
 4) Login into desktop as the rosuser:
 
