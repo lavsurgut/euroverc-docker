@@ -19,7 +19,7 @@ This means that these paths are being mounted from the host machine.
 When docker container will be rebuilt, everything that resides in this folder
 will not be deleted. Otherwise everything in the docker container is deleted.
 This is very useful for sharing source code for example. 
-In this example, desktop container will share "../../ros-project" folder with sear project
+In this example, desktop container will share "../../project" folder with project
 source code and also X11 folder to be able to display GUI from the container.
 
 Additionaly we mount USB device for our Xtion camera and GPU (for Intel Video 
